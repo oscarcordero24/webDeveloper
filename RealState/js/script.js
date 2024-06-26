@@ -18,8 +18,10 @@ import {
 let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
 
+const menuBtn = document.querySelector('.sidebar .icon');
+const sideBarNav = document.querySelector('.sidebar');
+
 window.onscroll = () => {
-    console.log("=====================")
     sections.forEach(sec => {
         let top = window.scrollY; // Top of the screen
         let offset = sec.offsetTop - 150; // Top location of the section
@@ -35,6 +37,12 @@ window.onscroll = () => {
 
     })
 }
+
+menuBtn.addEventListener('click', function() {
+    sideBarNav.classList.toggle('active');
+})
+
+
 
 
 /* ==================== CODE ====================== */

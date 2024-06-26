@@ -4,6 +4,7 @@
 
 :root {
     --background-nav: #181818;
+    --background-nav-blur: #181818;
     --background-color-1: #29292C;
     --background-color-2: #3C3C40;
     --font-color: #fff;
@@ -23,12 +24,11 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 120px;
+    padding: 20px 50px;
     background: var(--background-nav);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
 }
 
 .logo {
@@ -42,7 +42,7 @@ header {
     color: var(--font-color-active);
 }
 
-nav a {
+.topmenu a {
     position: relative;
     font-size: 18px;
     color: var(--font-color);
@@ -52,23 +52,41 @@ nav a {
     transition: 0.3s;
 }
 
-nav a:hover {
+.topmenu a.icon {
+    display: none;
+}
+
+.topmenu a:hover {
     color: var(--font-color-active);
 }
 
-nav a.active {
+.topmenu a.active {
     font-weight: 800;
     font-size: 18px;
     color: var(--font-color-active);
 }
 
-nav a.active::before {
+.topmenu a.active::before {
     position: absolute;
     content: '';
     width: 100%;
     height: 5px;
     bottom: -100%;
     background: var(--font-color-active);
+}
+
+.topmenu.hidden a {
+    display: none;
+}
+
+
+.sidebar {
+    display: none;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: var(--font-color);
 }
 
 section {
@@ -90,31 +108,83 @@ section:nth-child(odd) {
     background: var(--background-color-1);
 }
 
-@media (width <= 450px) {
+@media (width <= 1080px) {
 
-    section {
-        font-size: 35px;
-        min-height: 100vh;
-        font-weight: 500;
+    .topmenu a:nth-child(1),
+    .topmenu a:nth-child(2),
+    .topmenu a:nth-child(3),
+    .topmenu a:nth-child(4),
+    .topmenu a:nth-child(5) {
+        display: none;
     }
 
-    header {
-        padding: 10px 20px;
-        max-width: 100vh;
+    .topmenu a.icon {
+        display: block;
     }
 
-    .logo {
-        font-size: 14px;
-        color: var(--font-color);
-        text-decoration: none;
-        font-weight: 500;
+    .sidebar {
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        width: 60px;
+        height: 100vh;
+        justify-content: flex-start;
+        padding-top: 20px;
+        font-size: 18px;
+        font-weight: 600;
+        transition: 0.2s;
     }
-    
-    .logo span {
+
+    .sidebar a {
+        display: none;
+    }
+
+    .sidebar a:first-child {
+        display: block;
+    }
+
+    .sidebar.active {
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        background: var(--background-nav-blur);
+        width: 300px;
+        height: 100vh;
+        justify-content: flex-start;
+        padding-left: 50px;
+        padding-top: 20px;
+        gap: 50px;
+        font-size: 18px;
+        font-weight: 600;
+        transition: 0.2s;
+        border-left: 1px solid var(--font-color);
+    }
+
+    .sidebar.active a {
+        display: block;
+    }
+
+    .sidebar.active a:first-child span {
+        font-size: 30px;
+    }
+
+    .sidebar.active a:nth-child(2):hover,
+    .sidebar.active a:nth-child(3):hover,
+    .sidebar.active a:nth-child(4):hover,
+    .sidebar.active a:nth-child(5):hover,
+    .sidebar.active a:nth-child(6):hover {
         color: var(--font-color-active);
     }
 
-    header nav a {
-        display: none;
+    .sidebar.active>a.active {
+        color: var(--font-color-active);
+    }
+
+    section {
+        color: red;
     }
 }
