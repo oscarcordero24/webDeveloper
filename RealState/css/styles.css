@@ -89,3 +89,32 @@ section {
 section:nth-child(odd) {
     background: var(--background-color-1);
 }
+
+@media (width <= 450px) {
+
+    section {
+        font-size: 35px;
+        min-height: 100vh;
+        font-weight: 500;
+    }
+
+    header {
+        padding: 10px 20px;
+        max-width: 100vh;
+    }
+
+    .logo {
+        font-size: 14px;
+        color: var(--font-color);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    
+    .logo span {
+        color: var(--font-color-active);
+    }
+
+    header nav a {
+        display: none;
+    }
+}
