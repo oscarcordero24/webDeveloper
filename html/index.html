@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body id="body">
+    <aside id="sidebar">
+        <div class="top">
+            <div class="logo">
+                <img src="../images/cool_dog.png" id="logo-dog" alt="dog-logo">
+                <h1 class="title-text" id="first">Hello <span class="title-text" id="last">World! <span></h1>
+            </div>
+        </div>
+        <div class="buttons">
+            <a id="dashboard" href="#">
+                <span class="material-symbols-outlined">dashboard</span>
+                <h3>Dashboard</h3>
+            </a>
+            <a id="settings" href="#">
+                <span class="material-symbols-outlined">settings</span>
+                <h3>Settings</h3>
+            </a>
+            <a id="add-item" href="#">
+                <span class="material-symbols-outlined">add</span>
+                <h3>Add Item</h3>
+            </a>
+            <a id="remove-item" href="#">
+                <span class="material-symbols-outlined">remove</span>
+                <h3>Remove Item</h3>
+            </a>
+        </div>
+        <div class="logout-div">
+            <a id="logout" href="#">
+                <span class="material-symbols-outlined">logout</span>
+                <h3>Logout</h3>
+            </a>
+        </div>
+    </aside>
+    <div class="top-bar">
+        <div class="menu-btn">
+            <a id="menu" href="#">
+                <span class="material-symbols-outlined">menu</span>
+            </a>
+        </div>
+        <div class="search-div">
+            <div class="search">
+                <input type="text" name="search-bar" id="search-bar" placeholder="Search">
+                <a id="search-btn" href="#">
+                    <span class="material-symbols-outlined">search</span>
+                </a>
+            </div>
+        </div>
+        <div class="user">
+            <a id="user-icon" href="#">
+                <span class="material-symbols-outlined">person</span>
+            </a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="total-cost">
+            <h2 id="cost-label">Total Cost</h2>
+            <h3 id="cost-number">$--.--
+                <span class="material-symbols-outlined" id="cost-icon">arrow_upward</span>
+            </h3>
+        </div>
+        <div class="total-percent">
+            <h2 id="percent-label">Total Percent</h2>
+            <h3 id="percent-number">96.5%
+                <span class="material-symbols-outlined" id="percent-icon">arrow_downward</span>
+            </h3>
+        </div>
+        <div class="gauge">
+            <div class="card">
+                <div class="rating">
+                    <h3><span class="counter" data-target="50"></span>
+                    <sup>%</sup><br>$500,000</h3>
+                    <div class="block"></div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="table">
+                <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Level</th>
+                            <th>Cost</th>
+                            <th>Scope</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../js/script.js"></script>
+</body>
+</html>

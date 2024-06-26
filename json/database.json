@@ -1,0 +1,53 @@
+{
+    "database-1": 
+    [
+        {
+            "name":"Change No.1",
+            "level": "POB",
+            "cost": 300000.00,
+            "scope": true
+        },
+        {
+            "name":"Change No.2",
+            "level": "POB",
+            "cost": 150000,
+            "scope": true
+        },
+        {
+            "name":"Change No.3",
+            "level": "POB",
+            "cost": -500000,
+            "scope": false
+        },
+        {
+            "name":"Change No.4",
+            "level": "POB",
+            "cost": 120000,
+            "scope": true
+        },
+        {
+            "name":"Change No.5",
+            "level": "POB",
+            "cost": -300000,
+            "scope": false
+        },
+        {
+            "name":"Change No.6",
+            "level": "COD",
+            "cost": -1000000,
+            "scope": true
+        },
+        {
+            "name":"Change No.7",
+            "level": "COD",
+            "cost": -1000000,
+            "scope": true
+        },
+        {
+            "name":"Change No.8",
+            "level": "COD",
+            "cost": -2000000,
+            "scope": true
+        }
+    ]
+}

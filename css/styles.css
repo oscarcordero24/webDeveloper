@@ -1,0 +1,440 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/** Variables **/
+:root 
+{
+    --background-color: #CDEAE5;
+    --sidebar-color: #F1FAEE;
+    --title-span: #E63946;
+    --active-color: #EFCAC4;
+    --active-before-color: #E96A70;
+    --font-color-sidebar: grey;
+    --block-color: #f00;
+    --block-shadow: #f00;
+    --shadow-box: 10px 10px 20px rgba(0,0,0,0.2);
+}
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    grid-template-rows: 100px 1fr;
+    grid-template-areas: 
+    "side search"
+    "side main";
+    gap: 15px;
+    background-color: var(--background-color);
+    margin: 0px;
+    height: 100vh;
+}
+
+/* Format Logo Image */
+aside #logo-dog {
+    width: 80px;
+    height: 80px;
+}
+
+/** Format Aside Section **/
+#sidebar {
+    grid-area: side;
+    display: grid;
+    grid-template-rows: 150px 1fr 150px;
+    grid-template-areas: 
+    "logo"
+    "buttons"
+    "logout";
+    background-color: var(--sidebar-color);
+    box-shadow: var(--shadow-box);
+}
+
+
+/*=============== Minimize Sidebar ===================*/
+
+body.active {
+    grid-template-columns: 100px 1fr;
+}
+
+body.active #sidebar {
+    max-width: 100px;
+}
+
+
+body.active #sidebar #logo-dog{
+    width: 40px;
+    height: 40px;
+}
+
+body.active #sidebar .logo {
+    padding-top: 35px;
+}
+
+body.active #sidebar .logo h1 {
+    display: none;
+}
+
+body.active #sidebar .buttons a h3 {
+    display: none;
+}
+
+body.active #sidebar .buttons a span {
+    font-size: 26px;
+}
+
+/*=====================================================*/
+
+#sidebar .top {
+    grid-area: logo;
+}
+
+/* Format Title text */
+#sidebar .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+    gap: 15px;
+}
+
+#sidebar .logo h1 {
+    font-size: 2em;
+    color: var(--font-color-sidebar);
+    opacity: 100;
+    transition: opacity 2s ease-in;
+}
+
+#sidebar .logo h1 #last {
+    color: var(--title-span);
+}
+
+
+/** Format Buttons Section **/
+#sidebar .buttons {
+    grid-area: buttons;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-items: right;
+}
+
+/* Text Format */
+#sidebar .buttons a {
+    text-decoration: none;
+    display: flex;
+    padding-left: 40px;
+    height: 80px;
+    align-items: center;
+    font-size: 16px;
+    color: var(--font-color-sidebar);
+    transition: all .1s ease-in;
+}
+
+/* Logout position */
+#sidebar .logout-div {
+    grid-area: logout;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+#sidebar .logout-div a {
+    text-decoration: none;
+    display: flex;
+    padding-left: 40px;
+    height: 80px;
+    align-items: center;
+    font-size: 16px;
+    color: var(--font-color-sidebar);
+    transition: all .1s ease-in;
+}
+
+#sidebar .logout-div a:hover {
+    color: var(--active-before-color);
+    padding-left: 60px;
+}
+
+/* Active Format */
+#sidebar .buttons a.active {
+    position: relative;
+    background-color: var(--active-color);
+    color: var(--active-before-color);
+}
+
+#sidebar .buttons a.active::before {
+    position: absolute;
+    content: '';
+    background-color: #E63946;
+    width: 15px;
+    height: 100%;
+    left: 0;
+}
+
+#sidebar .buttons a:hover {
+    color: var(--active-before-color);
+    padding-left: 60px;
+}
+
+/**========= Main Body ============**/
+
+/* Searchbar Section */
+
+.top-bar {
+    grid-area: search;
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-areas:
+    "menu searchbar user";
+    margin: 20px 20px 0px 0px; /*top, right, button,left*/
+    padding: 10px 20px 10px 30px; /*top, right, button,left*/
+    background-color: var(--sidebar-color);
+    border-radius: 50px;
+    box-shadow: var(--shadow-box);
+}
+
+.top-bar a {
+    text-decoration: none;
+}
+
+.top-bar .menu-btn {
+    grid-area: menu;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.top-bar #menu {
+    display: flex;
+    align-items: center;
+}
+
+.top-bar #menu span {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--font-color-sidebar);
+    text-decoration: none;
+}
+
+.top-bar .search-div {
+    grid-area: searchbar;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.top-bar .search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px 5px 10px; /*top, right, button,left*/
+    gap: 5px;
+    border-radius: 50px;
+    border: 1px solid var(--font-color-sidebar);
+    background-color: white;
+    width: 350px;
+}
+
+.top-bar .search #search-bar{
+    background-color: transparent;
+    padding-left: 15px;
+    width: 100%;
+    outline: none;
+    border: none;
+}
+
+.top-bar .search #search-btn span {
+    color: var(--font-color-sidebar);
+}
+
+.top-bar .search #search-bar input[type="text"]:focus{
+    outline: none;
+    border: none;
+}
+
+.top-bar .user {
+    grid-area: user;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 15px;
+}
+
+.top-bar .user span {
+    color: var(--font-color-sidebar);
+}
+
+/*=========== Main Section=========== */
+
+.main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 125px 1fr;
+    grid-template-areas: 
+    "cost      percentage   gauge"
+    "content   content      content";
+    gap: 15px;
+    padding: 0px 20px 10px 0px; /*top, right, button,left*/
+}
+
+/* Total Cost Section */
+.main .total-cost {
+    grid-area: cost;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    gap: 15px;
+    background-color: var(--sidebar-color);
+    border-radius: 15px;
+    box-shadow: var(--shadow-box);
+}
+
+.main .total-cost h2 {
+    margin: 0px;
+    font-size: 18px;
+    color: var(--font-color-sidebar);
+}
+
+.main .total-cost h3 {
+    margin: 0px;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    color: green;
+}
+
+/* Total Cost Percent */
+.main .total-percent {
+    grid-area: percentage;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    gap: 15px;
+    background-color: var(--sidebar-color);
+    border-radius: 15px;
+    box-shadow: var(--shadow-box);
+    color: var(--font-color-sidebar);
+}
+
+.main .total-percent h2 {
+    margin: 0px;
+    font-size: 18px;
+}
+
+.main .total-percent h3 {
+    margin: 0px;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    color: red;
+}
+
+/* Gauge Section */
+.main .gauge {
+    grid-area: gauge;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    background-color: var(--sidebar-color);
+    border-radius: 15px;
+    box-shadow: var(--shadow-box);
+}
+
+.main .gauge .card {
+    position: relative;
+}
+
+.main .gauge .card .rating {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.main .gauge .card .rating h3 {
+    text-align: center;
+    font-size: 16px;
+    color: var(--font-color-sidebar);
+}
+
+.main .gauge .card .rating span {
+    font-size: 18px;
+}
+
+.main .gauge .card .rating sup {
+    font-size: 12px;
+}
+
+.main .gauge .card .rating .block {
+    position: absolute;
+    width: 3px;
+    height: 15px;
+    background: #bdbcbc;
+    opacity: 1;
+    left: 50%;
+    top: -100%;
+    transform-origin: 50% 100px;
+    transform: rotate(270deg);
+    animation: animate 0.1s linear forwards;
+}
+
+@keyframes animate {
+    to {
+        opacity: 1;
+    }
+}
+
+.main .gauge .card .rating .block:nth-child(-n+40) {
+    background: var(--block-color);
+    box-shadow: 0px 0px 15px var(--block-shadow);
+}
+
+.main .content {
+    grid-area: content;
+    background-color: var(--sidebar-color);
+    border-radius: 15px;
+    box-shadow: var(--shadow-box);
+}
+
+/* Table Section */
+.main .table {
+    padding: 30px;
+}
+
+.main .table #data-table {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--active-before-color);
+}
+
+.main .table #data-table th {
+    background: var(--active-before-color);
+    color: white;
+    padding: 10px 0px 10px 0px;
+    font-size: 18px;
+}
+
+.main .table #data-table th:nth-child(1) {
+    border-top-left-radius: 15px;
+}
+
+.main .table #data-table th:nth-last-child(1) {
+    border-top-right-radius: 15px;
+}
+
+.main .table #data-table td {
+    padding: 10px 0px 10px 0px; /*top, right, button,left*/
+}
+
+.main .table #data-table tbody tr:nth-child(even) {
+    background: var(--active-before-color);
+    color: white;
+}
+
+.main .table #data-table tbody td {
+    border-left: 1px solid var(--active-before-color);
+    border-right: 1px solid var(--active-before-color);
+}
