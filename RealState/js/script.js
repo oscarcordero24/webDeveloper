@@ -60,15 +60,15 @@ let expenses = new Expenses(
 );
 
 let house = new Property(
-    400000, // Cost
-    3000, // rent
+    200000, // Cost
+    2200, // rent
     expenses // Expenses object
 );
 
 let loan = new Loan(
     house.cost, // Loan Amount
     0, // Down Payment Percentage (decimal)
-    0.05, // Interest (decimal)
+    0.075, // Interest (decimal)
     30 // Years
 );
 
@@ -80,7 +80,7 @@ house.expenses.tax = taxCalculator(
 );
 house.expenses.vacancy = vacancyCalculator(
     loan.monthlyPayments, // Loan mortgage
-    2 // Amount of months the property will be vacancy
+    1.5 // Amount of months the property will be vacancy
 );
 
 // Calculate Cashflow
@@ -93,7 +93,9 @@ let cashflowMonthly = cashflow(
 // Check for a more convinient deal
 let bestDeal = getBetterDeal( // Return an array: [newHouse, newLoan, newExpenses]
     300, // Minimum cashfow
-    2500 // Minimum Rent
+    2200, // Minimum Rent
+    100000, // Minimum Price
+    house.cost // Maximum Price
 );
 
 // Calculate principal, interest and balance for whole period
@@ -115,5 +117,7 @@ With this price, a rent of ${currencyString(bestDeal[0].rent)} and a total
 of ${currencyString(bestDeal[0].rent-cashflow(bestDeal[0].rent,bestDeal[0].expenses, "month"))} in expenses, the total 
 cashflow this property will generate is ${currencyString(cashflow(bestDeal[0].rent,bestDeal[0].expenses, "month"))}.
 `
-/* console.log(currentReportString);
-console.log(newReportString); */
+console.log(currentReportString);
+console.log(newReportString);
+
+console.log(loan);
