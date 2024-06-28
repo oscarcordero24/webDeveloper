@@ -72,7 +72,8 @@ let loan = new Loan(
     house.cost, // Loan Amount
     0, // Down Payment Percentage (decimal)
     0.075, // Interest (decimal)
-    30 // Years
+    30, // Years
+    false // Rolling Closing
 );
 
 // Update expenses for the house
