@@ -1,33 +1,6 @@
-
-// Objects ("Classes")
-export function Loan(amount, downPaymentPercent, interest, years) {
-    this.amount = amount;
-    this.downPayment = amount * downPaymentPercent;
-    this.interest = interest;
-    this.years = years;
-    this.months = years * 12;
-    this.monthlyPayments = monthlyPayment(this.amount-this.downPayment, this.interest, this.months);
-    this.totalLoan = this.amount - this.downPayment;
-}
-
-export function Property(cost, rent, expenses) {
-    this.cost = cost;
-    this.rent = rent;
-    this.expenses = expenses
-}
-
-export function Expenses(mortgage, energy, water, trash, hoa, internet, parking, tax, vacancy) {
-    this.mortgage = mortgage;
-    this.energy = energy;
-    this.water = water;
-    this.trash = trash;
-    this.hoa = hoa;
-    this.internet = internet;
-    this.parking = parking;
-    this.tax = tax;
-    this.vacancy = vacancy
-}
-
+import {Loan} from '../Classes/LoanClass.js';
+import {Expenses} from '../Classes/ExpensesClass.js';
+import {Property} from '../Classes/PropertyClass.js';
 // Other Functions
 export function currencyString(amount) {
     return new Intl.NumberFormat('en-US', {style:'currency', currency:'USD'}).format(amount);
@@ -82,12 +55,12 @@ export function getInterestPrincipalValues(loanAmount, monthlyPayment, interest,
     return valuesList;
 }
 
-export function getBetterDeal(minCashflow, minRent, minPrice=50000, maxPrice=1000000) {
-    for (var i = minPrice; i < maxPrice; i++) {
+export function getBetterDeal(minCashflow, minRent, downPayment=0.2, interest=0.07, years=30, minPrice=50000, maxPrice=1000000) {
+    for (var i = minPrice; i < maxPrice + 1; i++) {
 
         var newExpenses = new Expenses(
             0, // Mortgage
-            120, // Energy
+            0, // Energy
             80, // Water
             50, // Trash
             150, // HOA
@@ -105,14 +78,14 @@ export function getBetterDeal(minCashflow, minRent, minPrice=50000, maxPrice=100
         
         var newLoan = new Loan(
             newHouse.cost, // Loan Amount
-            0.2, // Down Payment Percentage (decimal)
-            0.07, // Interest (decimal)
-            30 // Years
+            downPayment, // Down Payment Percentage (decimal)
+            interest, // Interest (decimal)
+            years // Years
         );
         
         // Update expenses for the house
         newHouse.expenses.mortgage = newLoan.monthlyPayments;
-        newHouse.expenses.tax = taxCalculator(newHouse.cost, 0.0015);
+        newHouse.expenses.tax = taxCalculator(newHouse.cost, 0.015);
         newHouse.expenses.vacancy = vacancyCalculator(newLoan.monthlyPayments, 2)
         
         // Calculate Cashflow
@@ -127,19 +100,12 @@ export function getBetterDeal(minCashflow, minRent, minPrice=50000, maxPrice=100
     return [newHouse, newLoan, newExpenses];
 }
 
-function monthlyPayment(principal, interest, period) {
-    let numerator = principal * interest/12 * Math.pow(1 + interest/12, period);
-    let denominator = Math.pow(1 + interest/12, period) - 1;
-
-    return stringToFloat(numerator/denominator);
-} 
-
 function stringToFloat (numberString) {
     try {
         let result = parseFloat(numberString.toFixed(2));
         return result;
     } catch (error) {
-        console.log("Error while parsing '" + resultString + "'. \nError: " + error);
+        console.log("Error while parsing '" + numberString + "'. \nError: " + error);
         return 0;
     }
 }
