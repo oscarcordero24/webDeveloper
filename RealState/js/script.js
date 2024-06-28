@@ -83,7 +83,7 @@ house.expenses.tax = taxCalculator(
 );
 house.expenses.vacancy = vacancyCalculator(
     loan.monthlyPayments, // Loan mortgage
-    2 // Amount of months the property will be vacancy
+    1.5 // Amount of months the property will be vacancy
 );
 
 // Calculate Cashflow
