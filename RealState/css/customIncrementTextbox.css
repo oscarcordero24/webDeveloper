@@ -1,0 +1,90 @@
+
+/*
+Replace the selector path to where the increment textbox is.
+
+For color: 
+-add a style to the div containing the increment textbox with this value: '--i:color'.
+-In the 'color' text you will enter the color you want.
+
+The structure for your increment textbox should look like this in order for this style to work:
+
+<div class="textbox-increment">
+    <input type="text">
+    <span class="input-text-holder">Down Payment (%)</span>
+    <div class="inc-dec-button">
+        <span class="material-symbols-outlined">add</span>
+        <span class="material-symbols-outlined">remove</span>
+    </div>
+</div>
+
+*/
+
+:root {
+    --font-size: 20px;
+}
+
+#dashboard .input .textbox-increment {
+    position: relative;
+    display: flex;
+}
+
+#dashboard .input .textbox-increment input {
+    width: 400px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid var(--i);
+    border-radius: 5px;
+    box-shadow: 0 0 5px var(--i),
+    0 0 10px var(--i);
+    outline: none;
+    padding-left: 20px;
+    color: white;
+    font-size: var(--font-size);
+}
+
+#dashboard .input .textbox-increment>span {
+    position: absolute;
+    left: 0;
+    font-size: var(--font-size);
+    left: 30px;
+    top: 10px;
+    letter-spacing: 1px;
+    color: white;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+#dashboard .input .textbox-increment .inc-dec-button {
+    position: absolute;
+    display: flex;
+    right: 25px;
+    top: 10px;
+    gap: 40px;
+}
+
+#dashboard .input .textbox-increment .inc-dec-button span {
+    /* background: var(--i); */
+    color: white;
+    font-size: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--i);
+    box-shadow: 0 0 5px var(--i);
+    cursor: pointer;
+    user-select: none;
+}
+
+#dashboard .input .textbox-increment .inc-dec-button span:hover {
+    background: var(--i);
+}
+
+#dashboard .input .textbox-increment input:focus ~ span,
+#dashboard .input .textbox-increment input.has-content ~ span {
+    font-size: 12px;
+    top: 0;
+    left: 20px;
+    background: var(--i);
+    border-radius: 5px;
+    padding: 0px 3px;
+    margin-top: -10px;
+}
+
