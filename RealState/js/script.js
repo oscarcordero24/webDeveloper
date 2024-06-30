@@ -44,7 +44,6 @@ menuBtn.addEventListener('click', function() {
 
 
 
-
 /* ==================== CODE ====================== */
 
 let showCashflowReport = false;
