@@ -52,26 +52,28 @@ let showMonthlyPaymentReport = true;
 
 let expenses = new Expenses(
     0, // Mortgage
-    0, // Energy
-    0, // Water
-    0, // Trash
-    19, // HOA
-    0, // Internet
+    150, // Energy
+    100, // Water
+    25, // Trash
+    50, // HOA
+    60, // Internet
     0, // Parking
     0, // Tax
-    0 // Vacancy
+    0, // Vacancy
+    1500 // Home Insurance Annually
 );
 
 let house = new Property(
-    330000, // Cost
-    0, // rent
-    expenses // Expenses object
+    240000, // Cost
+    2500, // rent
+    expenses, // Expenses object
+    false // Rolling Cost
 );
 
 let loan = new Loan(
     house.cost, // Loan Amount
-    0, // Down Payment Percentage (decimal)
-    0.075, // Interest (decimal)
+    0.2, // Down Payment Percentage (decimal)
+    0.07, // Interest (decimal)
     30, // Years
     false // Rolling Closing
 );
@@ -94,10 +96,11 @@ let cashflowMonthly = cashflow(
     "month" // Term => 'month' or 'year'
 );
 
-// Check for a more convinient deal
+// Check for a more convenient deal
 let bestDeal = getBetterDeal( // Return an array: [newHouse, newLoan, newExpenses]
-    300, // Minimum cashfow
-    3000, // Minimum Rent
+    500, // Minimum cashflow
+    2600, // Minimum Rent
+    house.rollingClosing, // Rolling Closing
     loan.downPayment, // Down Payment
     loan.interest, // Interest
     loan.years, // Years
@@ -112,7 +115,7 @@ let totalPrincipal = chartData.principal.reduce((accumulative, current) => accum
 
 let currentReportString = 
 `
-This proprety original price is ${currencyString(house.cost)}. With this price,
+This property original price is ${currencyString(house.cost)}. With this price,
 a rent of ${currencyString(house.rent)} and a total of ${currencyString(house.rent-cashflowMonthly)}
 in expenses, the total cashflow this property will generate is ${currencyString(cashflowMonthly)}.
 `
@@ -148,6 +151,11 @@ if (showMonthlyPaymentReport) {
             reportString += `-${value}: $${house.expenses[value].toFixed(2)}\n`;
         }
     });
+
+    reportString += `\nTotal House cost: $${(house.cost + house.closingCost).toFixed(2)}\n`;
+    reportString += `-Closing cost: $${house.closingCost.toFixed(2)}\n`;
+    reportString += `\nDown payment: $${loan.downPayment.toFixed(2)}\n\n`;
+    reportString += `Total Initial Cost: $${(loan.downPayment + house.closingCost).toFixed(2)}`
 
     console.log(reportString);
 }
