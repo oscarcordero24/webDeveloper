@@ -55,32 +55,35 @@ export function getInterestPrincipalValues(loanAmount, monthlyPayment, interest,
     return valuesList;
 }
 
-export function getBetterDeal(minCashflow, minRent, downPayment=0.2, interest=0.07, years=30, minPrice=50000, maxPrice=1000000) {
+export function getBetterDeal(minCashflow, minRent, rollingCost=false, downPayment=0.2, interest=0.07, years=30, minPrice=50000, maxPrice=1000000) {
     for (var i = minPrice; i < maxPrice + 1; i++) {
 
         var newExpenses = new Expenses(
             0, // Mortgage
             0, // Energy
-            80, // Water
-            50, // Trash
-            150, // HOA
+            100, // Water
+            25, // Trash
+            50, // HOA
             0, // Internet
             0, // Parking
             0, // Tax
-            0 // Vacancy
+            0, // Vacancy
+            1500 // Home Insurance Annually
         );
         
         var newHouse = new Property(
             i, // Cost
             minRent, // rent
-            newExpenses // Expenses object
+            newExpenses, // Expenses object
+            rollingCost // Rolling Cost
         );
         
         var newLoan = new Loan(
             newHouse.cost, // Loan Amount
             downPayment, // Down Payment Percentage (decimal)
             interest, // Interest (decimal)
-            years // Years
+            years, // Years
+            rollingCost // Rolling Cost
         );
         
         // Update expenses for the house
