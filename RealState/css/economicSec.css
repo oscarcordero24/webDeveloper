@@ -4,7 +4,13 @@
 section .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: 
+    "title title"
+    "cost expenses"
+    "cost expenses"
+    "cost expenses"
+    "cost expenses"
     "cost expenses";
     background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(255,255,255,0));
     backdrop-filter: blur(10px);
@@ -17,6 +23,22 @@ section .container {
     height: 75vh;
 }
 
+#dashboard header {
+    grid-area: title;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border-bottom: 2px dashed white;
+}
+
+#dashboard header .title {
+    font-size: 36px;
+    color: white;
+}
+
 #dashboard .cost-info-input {
     grid-area: cost;
     display: flex;
@@ -24,4 +46,17 @@ section .container {
     justify-content: center;
     align-items: center;
     gap: 40px;
+    border-right: 2px dashed white;
+}
+
+#dashboard .cost-info-input .input {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+#dashboard .cost-info-input .input>span:first-child {
+    color: white;
+    font-size: 30px;
 }
