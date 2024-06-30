@@ -5,12 +5,12 @@ import {
     taxCalculator,
     vacancyCalculator,
     cashflow,
-    Loan,
-    Property,
-    Expenses,
     getBetterDeal,
-    getInterestPrincipalValues
-} from './Functions.js';
+    getInterestPrincipalValues,
+} from './Functions/functions.js';
+import {Loan} from './Classes/LoanClass.js';
+import {Expenses} from './Classes/ExpensesClass.js';
+import {Property} from './Classes/PropertyClass.js';
 
 
 /* ================= HTML & CSS =================== */
@@ -44,15 +44,17 @@ menuBtn.addEventListener('click', function() {
 
 
 
-
 /* ==================== CODE ====================== */
+
+let showCashflowReport = false;
+let showMonthlyPaymentReport = true;
 
 let expenses = new Expenses(
     0, // Mortgage
     0, // Energy
-    80, // Water
-    50, // Trash
-    150, // HOA
+    0, // Water
+    0, // Trash
+    19, // HOA
     0, // Internet
     0, // Parking
     0, // Tax
@@ -60,8 +62,8 @@ let expenses = new Expenses(
 );
 
 let house = new Property(
-    200000, // Cost
-    2200, // rent
+    330000, // Cost
+    0, // rent
     expenses // Expenses object
 );
 
@@ -76,7 +78,7 @@ let loan = new Loan(
 house.expenses.mortgage = loan.monthlyPayments;
 house.expenses.tax = taxCalculator(
     house.cost, // House Price
-    0.015 // Annual Tax (decimal)
+    0.0114 // Annual Tax (decimal)
 );
 house.expenses.vacancy = vacancyCalculator(
     loan.monthlyPayments, // Loan mortgage
@@ -93,9 +95,12 @@ let cashflowMonthly = cashflow(
 // Check for a more convinient deal
 let bestDeal = getBetterDeal( // Return an array: [newHouse, newLoan, newExpenses]
     300, // Minimum cashfow
-    2200, // Minimum Rent
-    100000, // Minimum Price
-    house.cost // Maximum Price
+    3000, // Minimum Rent
+    loan.downPayment, // Down Payment
+    loan.interest, // Interest
+    loan.years, // Years
+    100000, // Minimum Cost
+    house.cost // Maximum Cost
 );
 
 // Calculate principal, interest and balance for whole period
@@ -117,7 +122,31 @@ With this price, a rent of ${currencyString(bestDeal[0].rent)} and a total
 of ${currencyString(bestDeal[0].rent-cashflow(bestDeal[0].rent,bestDeal[0].expenses, "month"))} in expenses, the total 
 cashflow this property will generate is ${currencyString(cashflow(bestDeal[0].rent,bestDeal[0].expenses, "month"))}.
 `
-console.log(currentReportString);
-console.log(newReportString);
 
-console.log(loan);
+if (showCashflowReport) {
+    console.log(currentReportString);
+    console.log(newReportString);
+    console.log([house, loan, expenses]);
+    console.log(bestDeal);
+}
+
+if (showMonthlyPaymentReport) {
+
+    let totalExpenses = 0;
+    Object.keys(house.expenses).forEach(value => {
+        if (value !== "vacancy") {
+            totalExpenses += house.expenses[value];
+        }
+    });
+
+    let reportString = `House price: $${house.cost.toFixed(2)}\nExpenses: $${totalExpenses.toFixed(2)}\n\n`;
+
+    Object.keys(house.expenses).forEach(value => {
+        if (value !== "vacancy") {
+            reportString += `-${value}: $${house.expenses[value].toFixed(2)}\n`;
+        }
+    });
+
+    console.log(reportString);
+}
+

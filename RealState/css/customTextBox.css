@@ -1,0 +1,70 @@
+/*
+Replace the selector path to where the text box is.
+
+For color: 
+-add a style to the div containing the textbox with this value: '--i:color'.
+-In the 'color' text you will enter the color you want.
+
+The structure for your text box should look like this in order for this style to work:
+
+<div class="textbox" style="--i:#FF006E">
+    <input type="text">
+    <span class="input-text-holder">Enter Cost</span>
+</div>
+
+*/
+
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --font-size: 20px;
+}
+
+#dashboard .input .textbox {
+    position: relative;
+}
+
+#dashboard .input .textbox input {
+    width: 400px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-left: 20px;
+    border: 2px solid var(--i);
+    background: transparent; 
+    box-shadow: 0 0 5px var(--i),
+    0 0 10px var(--i);
+    color: white;
+    font-size: var(--font-size);
+}
+
+#dashboard .input .textbox span {
+    position: absolute;
+    font-size: var(--font-size);
+    left: 30px;
+    top: 10px;
+    letter-spacing: 1px;
+    color: white;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+#dashboard .input .textbox input:focus {
+    outline: none;
+}
+
+#dashboard .input .textbox input:focus ~ span,
+#dashboard .input .textbox input.has-content ~ span {
+    font-size: 12px;
+    top: 0;
+    left: 20px;
+    background: var(--i);
+    border-radius: 5px;
+    padding: 0px 3px;
+    margin-top: -10px;
+}
