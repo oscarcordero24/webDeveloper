@@ -56,7 +56,13 @@ section .container {
     align-items: center;
 }
 
-#dashboard .cost-info-input .input>span:first-child {
+#dashboard .cost-info-input .input>span {
     color: white;
     font-size: 30px;
+    pointer-events: none;
+}
+
+#dashboard .cost-info-input .input .text {
+    color: white;
+    font-size: 20px;
 }

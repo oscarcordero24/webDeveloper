@@ -1,0 +1,70 @@
+/*
+Replace the selector path to where the switchbox is.
+
+For color: 
+-add a style to the div containing the switchbox with this value: '--i:color'.
+-In the 'color' text you will enter the color you want.
+
+The structure for your switchbox should look like this in order for this style to work:
+
+<label class="checkbox">
+    <input type="checkbox" id="rolling-cost-checkbox">
+    <span></span>
+    <b></b>
+</label>
+
+*/
+
+#dashboard .container label.checkbox {
+    position: relative;
+    background: black;
+    width: 60px;
+    height: 30px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+#dashboard .container label.checkbox input {
+    appearance: none;
+}
+
+#dashboard .container label.checkbox span {
+    background: rgba(255,255,255, 0.8);
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+    transition: 0.5s;
+}
+
+#dashboard .container label.checkbox b {
+    position: absolute;
+    background: white;
+    width: 26px;
+    height: 26px;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    border: 1px solid grey;
+    transition: 0.5s;
+}
+
+#dashboard .container label.checkbox input:checked ~ b {
+    transform: translateX(30px);
+    transition: 0.5s;
+}
+
+#dashboard .container label.checkbox input:checked ~ b {
+    transform: translateX(30px);
+    transition: 0.5s;
+}
+
+#dashboard .container label.checkbox input:checked ~ span {
+    background: var(--i);
+    transition: 0.5s;
+}
+
