@@ -19,6 +19,24 @@ allIncrementTextBox.forEach(element => {
     })
 });
 
+allIncrementTextBox.forEach(element => {
+    element.addEventListener('change', function () {
+        let parseNum = parseInt(element.value);
+        if (parseNum) {
+            if (parseNum > 100) {
+                element.value = 100 + "%";
+            } else if (parseNum < 0) {
+                element.value = 0 + "%";
+            } else {
+                element.value = parseNum + "%";
+            }
+        } else {
+            alert("Error while parsing the number");
+            element.value = "";
+        }
+    })
+});
+
 spanAdd.addEventListener('click', function() {
     if (incrementTxtbox.value.length > 0) {
         percentage = parseInt(incrementTxtbox.value);
