@@ -35,17 +35,22 @@
         
     </header>
 
-    <section id="dashboard">
+    <section id="dashboard">Dashboard</section>
+    <section id="overview">Overview</section>
+    <section id="information">Information</section>
+    <section id="economic">
         <div class="container">
+
+            <header>
+                <h4 class="title">Economic Information</h2>
+            </header>
+
             <div class="cost-info-input">
-                <header>
-                    <h4 class="title">Economic Information</h2>
-                </header>
-                
+
                 <div class="input">
                     <span class="material-symbols-outlined">paid</span>
                     <div class="textbox" style="--i:#FF006E;">
-                        <input type="text">
+                        <input type="text" id="cost-txtbox">
                         <span class="input-text-holder">Cost</span>
                     </div>
                 </div>
@@ -53,7 +58,7 @@
                 <div class="input">
                     <span class="material-symbols-outlined">payments</span>
                     <div class="textbox-increment" style="--i:#FFBE0B;">
-                        <input type="text">
+                        <input type="text" id="downpayment-txtbox">
                         <span class="input-text-holder">Down Payment (%)</span>
                         <div class="inc-dec-button">
                             <span class="material-symbols-outlined">add</span>
@@ -65,7 +70,7 @@
                 <div class="input">
                     <span class="material-symbols-outlined">account_balance</span>
                     <div class="textbox" style="--i:#8338EC;">
-                        <input type="text">
+                        <input type="text" id="interest-txtbox">
                         <span class="input-text-holder">Interest (%)</span>
                     </div>
                 </div>
@@ -73,7 +78,7 @@
                 <div class="input">
                     <span class="material-symbols-outlined">calendar_month</span>
                     <div class="textbox" style="--i:#3A86FF;">
-                        <input type="text">
+                        <input type="text" id="years-txtbox">
                         <span class="input-text-holder">Years</span>
                     </div>
                 </div>
@@ -88,11 +93,13 @@
                     </label>
                 </div>
             </div>
+
+            <div class="expenses">
+                <button>Test Button</button>
+            </div>
+
         </div>
     </section>
-    <section id="overview">Overview</section>
-    <section id="information">Information</section>
-    <section id="economic">Economic</section>
     <section id="tbd">TBD</section>
 
     <script type="module" src="../js/script.js"></script>
