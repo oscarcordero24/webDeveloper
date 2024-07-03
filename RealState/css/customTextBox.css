@@ -68,3 +68,18 @@ The structure for your text box should look like this in order for this style to
     padding: 0px 3px;
     margin-top: -10px;
 }
+
+@media (max-width:1920px) {
+
+    #dashboard .input .textbox input {
+        width: 300px;
+        height: 40px;
+        border: 1px solid var(--i);
+        color: white;
+        font-size: 16px;
+    }
+
+    #dashboard .input .textbox span {
+        font-size: 16px;
+    }
+}
