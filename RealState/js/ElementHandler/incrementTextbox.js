@@ -13,6 +13,8 @@ allIncrementTextBox.forEach(element => {
     element.addEventListener('input', function () {
         if (element.value.length > 0) {
             element.classList.add('has-content');
+        } else if (element.value === "") {
+            element.classList.remove('has-content');
         } else {
             element.classList.remove('has-content');
         }
@@ -32,9 +34,22 @@ allIncrementTextBox.forEach(element => {
             }
         } else {
             alert("Error while parsing the number");
+            element.classList.remove('has-content');
             element.value = "";
         }
+    });
+
+    element.addEventListener('click', function () {
+        element.value = "";
+        percentage = 0;
+    });
+
+    element.addEventListener('blur', function () {
+        if (element.value === "") {
+            element.classList.remove('has-content');
+        }
     })
+
 });
 
 spanAdd.addEventListener('click', function() {
@@ -43,6 +58,8 @@ spanAdd.addEventListener('click', function() {
         percentage += 1;
         incrementTxtbox.value = percentage + "%";
     } else {
+        console.log(percentage);
+        console.log(incrementTxtbox.value);
         percentage += 1;
         incrementTxtbox.value = percentage + "%";
         downPaymentValue.classList.add('has-content');

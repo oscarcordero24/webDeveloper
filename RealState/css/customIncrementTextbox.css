@@ -23,12 +23,12 @@ The structure for your increment textbox should look like this in order for this
     --font-size: 20px;
 }
 
-#dashboard .input .textbox-increment {
+#economic .input .textbox-increment {
     position: relative;
     display: flex;
 }
 
-#dashboard .input .textbox-increment input {
+#economic .input .textbox-increment input {
     width: 400px;
     height: 50px;
     background: transparent;
@@ -42,7 +42,7 @@ The structure for your increment textbox should look like this in order for this
     font-size: var(--font-size);
 }
 
-#dashboard .input .textbox-increment>span {
+#economic .input .textbox-increment>span {
     position: absolute;
     left: 0;
     font-size: var(--font-size);
@@ -54,7 +54,7 @@ The structure for your increment textbox should look like this in order for this
     transition: 0.5s;
 }
 
-#dashboard .input .textbox-increment .inc-dec-button {
+#economic .input .textbox-increment .inc-dec-button {
     position: absolute;
     display: flex;
     right: 25px;
@@ -62,7 +62,7 @@ The structure for your increment textbox should look like this in order for this
     gap: 40px;
 }
 
-#dashboard .input .textbox-increment .inc-dec-button span {
+#economic .input .textbox-increment .inc-dec-button span {
     /* background: var(--i); */
     color: white;
     font-size: 28px;
@@ -73,12 +73,12 @@ The structure for your increment textbox should look like this in order for this
     user-select: none;
 }
 
-#dashboard .input .textbox-increment .inc-dec-button span:hover {
+#economic .input .textbox-increment .inc-dec-button span:hover {
     background: var(--i);
 }
 
-#dashboard .input .textbox-increment input:focus ~ span,
-#dashboard .input .textbox-increment input.has-content ~ span {
+#economic .input .textbox-increment input:focus ~ span,
+#economic .input .textbox-increment input.has-content ~ span {
     font-size: 12px;
     top: 0;
     left: 20px;
@@ -86,5 +86,31 @@ The structure for your increment textbox should look like this in order for this
     border-radius: 5px;
     padding: 0px 3px;
     margin-top: -10px;
+}
+
+@media (max-width: 1920px) {
+    
+    #economic .input .textbox-increment input {
+        width: 300px;
+        height: 40px;
+        border: 1px solid var(--i);
+        font-size: 16px;
+    }
+    
+    #economic .input .textbox-increment>span {
+        font-size: 16px;
+    }
+    
+    #economic .input .textbox-increment .inc-dec-button {
+        right: 15px;
+        top: 10px;
+        gap: 20px;
+    }
+    
+    #economic .input .textbox-increment .inc-dec-button span {
+        /* background: var(--i); */
+        font-size: 20px;
+        border: 1px solid var(--i);
+    }
 }
 

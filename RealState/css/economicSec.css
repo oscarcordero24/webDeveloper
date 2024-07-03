@@ -23,7 +23,7 @@ section .container {
     height: 75vh;
 }
 
-#dashboard header {
+#economic header {
     grid-area: title;
     display: flex;
     width: 100%;
@@ -34,12 +34,12 @@ section .container {
     border-bottom: 2px dashed white;
 }
 
-#dashboard header .title {
+#economic header .title {
     font-size: 36px;
     color: white;
 }
 
-#dashboard .cost-info-input {
+#economic .cost-info-input {
     grid-area: cost;
     display: flex;
     flex-direction: column;
@@ -49,20 +49,27 @@ section .container {
     border-right: 2px dashed white;
 }
 
-#dashboard .cost-info-input .input {
+#economic .cost-info-input .input {
     display: flex;
     gap: 15px;
     justify-content: center;
     align-items: center;
 }
 
-#dashboard .cost-info-input .input>span {
+#economic .cost-info-input .input>span {
     color: white;
     font-size: 30px;
     pointer-events: none;
 }
 
-#dashboard .cost-info-input .input .text {
+#economic .cost-info-input .input .text {
     color: white;
     font-size: 20px;
+}
+
+#economic .container .expenses {
+    grid-area: expenses;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

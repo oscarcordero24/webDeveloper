@@ -25,11 +25,11 @@ The structure for your text box should look like this in order for this style to
     --font-size: 20px;
 }
 
-#dashboard .input .textbox {
+#economic .input .textbox {
     position: relative;
 }
 
-#dashboard .input .textbox input {
+#economic .input .textbox input {
     width: 400px;
     height: 50px;
     cursor: pointer;
@@ -43,7 +43,7 @@ The structure for your text box should look like this in order for this style to
     font-size: var(--font-size);
 }
 
-#dashboard .input .textbox span {
+#economic .input .textbox span {
     position: absolute;
     font-size: var(--font-size);
     left: 30px;
@@ -54,12 +54,12 @@ The structure for your text box should look like this in order for this style to
     transition: 0.5s;
 }
 
-#dashboard .input .textbox input:focus {
+#economic .input .textbox input:focus {
     outline: none;
 }
 
-#dashboard .input .textbox input:focus ~ span,
-#dashboard .input .textbox input.has-content ~ span {
+#economic .input .textbox input:focus ~ span,
+#economic .input .textbox input.has-content ~ span {
     font-size: 12px;
     top: 0;
     left: 20px;
@@ -67,4 +67,19 @@ The structure for your text box should look like this in order for this style to
     border-radius: 5px;
     padding: 0px 3px;
     margin-top: -10px;
+}
+
+@media (max-width:1920px) {
+
+    #economic .input .textbox input {
+        width: 300px;
+        height: 40px;
+        border: 1px solid var(--i);
+        color: white;
+        font-size: 16px;
+    }
+
+    #economic .input .textbox span {
+        font-size: 16px;
+    }
 }

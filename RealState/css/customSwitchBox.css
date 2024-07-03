@@ -15,7 +15,7 @@ The structure for your switchbox should look like this in order for this style t
 
 */
 
-#dashboard .container label.checkbox {
+#economic .container label.checkbox {
     position: relative;
     background: black;
     width: 60px;
@@ -28,11 +28,11 @@ The structure for your switchbox should look like this in order for this style t
     border: 2px solid white;
 }
 
-#dashboard .container label.checkbox input {
+#economic .container label.checkbox input {
     appearance: none;
 }
 
-#dashboard .container label.checkbox span {
+#economic .container label.checkbox span {
     background: rgba(255,255,255, 0.8);
     width: 100%;
     height: 100%;
@@ -41,7 +41,7 @@ The structure for your switchbox should look like this in order for this style t
     transition: 0.5s;
 }
 
-#dashboard .container label.checkbox b {
+#economic .container label.checkbox b {
     position: absolute;
     background: white;
     width: 26px;
@@ -53,17 +53,17 @@ The structure for your switchbox should look like this in order for this style t
     transition: 0.5s;
 }
 
-#dashboard .container label.checkbox input:checked ~ b {
+#economic .container label.checkbox input:checked ~ b {
     transform: translateX(30px);
     transition: 0.5s;
 }
 
-#dashboard .container label.checkbox input:checked ~ b {
+#economic .container label.checkbox input:checked ~ b {
     transform: translateX(30px);
     transition: 0.5s;
 }
 
-#dashboard .container label.checkbox input:checked ~ span {
+#economic .container label.checkbox input:checked ~ span {
     background: var(--i);
     transition: 0.5s;
 }
