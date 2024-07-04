@@ -1,0 +1,14 @@
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --dark-grey-color: #1D2C33;
+    --grey-color: #5E7177;
+    --grey-blue-color: #ADB7B8;
+}
+
+body {
+    overflow: hidden;
+}
