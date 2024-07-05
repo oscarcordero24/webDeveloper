@@ -1,0 +1,134 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=IM+Fell+French+Canon+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=IM+Fell+French+Canon+SC&display=swap');
+
+#property-section {
+    width: 100%;
+    height: 100vh;
+    background: var(--grey-blue-color);
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    grid-template-areas: 
+    "content"
+    "footer";
+}
+
+#property-section .content {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 250px 1fr;
+    grid-template-areas: 
+    "title title"
+    "image inputs";
+    width: 100%;
+    height: 100%;
+}
+
+#property-section .page-title {
+    grid-area: title;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 30px;
+}
+
+#property-section .page-title h4 {
+    font-size: 120px;
+    font-family: "Baskervville SC", serif;
+    color: var(--dark-grey-color);
+    margin: 0;
+    padding:0;
+}
+
+#property-section .page-title h2 {
+    font-size: 60px;
+    font-family: "Fraunces", serif;
+    text-transform: uppercase;
+    color: var(--grey-color);
+    margin: 0;
+    padding:0;
+}
+
+#property-section .image {
+    grid-area: image;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#property-section .image img {
+    width: 750px;
+    height: auto;
+    border-radius: 10px;
+}
+
+#property-section .inputs {
+    grid-area: inputs;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px
+}
+
+#property-section .inputs div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+#property-section .input {
+    display: flex;
+    position: relative;
+}
+
+#property-section input {
+    width: 300px;
+    height: 40px;
+    border-radius: 30px;
+    border: 0;
+    background: var(--grey-light-color);
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+    outline: none;
+    color: var(--dark-grey-color);
+    font-size: var(--font-normal);
+    font-weight: 600;
+    text-align: center;
+}
+
+#property-section .inputs div>span:first-child {
+    font-size: var(--font-icons);
+    font-weight: bold;
+    color: var(--dark-grey-color);
+}
+
+#property-section .input span {
+    position: absolute;
+    font-size: var(--font-normal);
+    font-weight: 600;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: var(--grey-color);
+}
+
+#property-section .input.active span {
+    color: red;
+    top: 0;
+    font-size: var(--font-small);
+}
+
+#property-section .input span sup {
+    font-size: var(--font-small);
+}
+
+#property-section footer {
+    grid-area: footer;
+    width: 100%;
+    height: 100%;
+    background: white;    
+}
