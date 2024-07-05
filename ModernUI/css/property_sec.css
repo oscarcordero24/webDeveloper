@@ -114,12 +114,28 @@
     left: 50%;
     transform: translate(-50%,-50%);
     color: var(--grey-color);
+    transition: 0.5s;
+    pointer-events: none;
 }
 
-#property-section .input.active span {
-    color: red;
-    top: 0;
+#property-section .inputs input.active ~ span {
+    padding: 0px 15px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    top: -10px;
     font-size: var(--font-small);
+    background: var(--grey-light-color);
+    transition: 0.5s;
+}
+
+#property-section .inputs input:focus ~ span {
+    padding: 0px 15px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    top: -10px;
+    font-size: var(--font-small);
+    background: var(--grey-light-color);
+    transition: 0.5s;
 }
 
 #property-section .input span sup {
