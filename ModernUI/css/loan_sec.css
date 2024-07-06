@@ -1,0 +1,24 @@
+
+#loan-section {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 200px 1fr;
+    grid-template-areas: 
+    "info-cont inputs"
+    "info-cont inputs";
+}
+
+#loan-section .loan-information {
+    grid-area: info-cont;
+    width: 100%;
+    height: 100%;
+    background: var(--dark-grey-color);
+}
+
+#loan-section .input {
+    grid-area: inputs;
+    width: 100%;
+    height: 100%;
+}
