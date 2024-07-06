@@ -1,4 +1,20 @@
 
+let textboxList = document.querySelectorAll('#property-section .inputs input[type=text]');
+
+console.log(textboxList);
+
+textboxList.forEach(txtbox => {
+
+    txtbox.addEventListener('input', function() {
+        if (txtbox.value.length > 0) {
+            txtbox.classList.add('active');
+        } else {
+            txtbox.classList.remove('active');
+        };
+    });
+
+});
+
 /* window.onscroll = () => {
     let top = window.scrollY; // Top of the screen
     let offset = sec.offsetTop - 150; // Top location of the section
