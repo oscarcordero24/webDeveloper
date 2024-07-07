@@ -1,0 +1,25 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --dark-grey-color: #1D2C33;
+    --grey-color: #5E7177;
+    --grey-blue-color: #ADB7B8;
+    --grey-light-color: #C5C8C1;
+
+    --font-normal: 26px;
+    --font-small: 18px;
+    --font-icons: 40px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}

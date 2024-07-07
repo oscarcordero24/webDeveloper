@@ -1,0 +1,47 @@
+
+#loan-section {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 200px 1fr;
+    grid-template-areas: 
+    "info-cont inputs"
+    "info-cont inputs";
+}
+
+#loan-section .loan-information {
+    grid-area: info-cont;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: var(--dark-grey-color);
+    padding: 0px 100px;
+}
+
+#loan-section .loan-information div {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: white;
+}
+
+#loan-section .loan-information div span {
+    font-size: 200px;
+    font-weight: bold;
+}
+
+#loan-section .loan-information div p {
+    font-size: 30px;
+    text-align: center;
+}
+
+#loan-section .input {
+    grid-area: inputs;
+    width: 100%;
+    height: 100%;
+    background: var(--grey-light-color);
+}

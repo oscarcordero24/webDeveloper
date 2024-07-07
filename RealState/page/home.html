@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/mainPage.css">
+    <link rel="stylesheet" href="../css/economicSec.css">
+    <link rel="stylesheet" href="../css/customTextBox.css">
+    <link rel="stylesheet" href="../css/customSwitchBox.css">
+    <link rel="stylesheet" href="../css/customIncrementTextbox.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
@@ -34,9 +38,73 @@
     <section id="dashboard">Dashboard</section>
     <section id="overview">Overview</section>
     <section id="information">Information</section>
-    <section id="economic">Economic</section>
+    <section id="economic">
+        <div class="container">
+
+            <header>
+                <h4 class="title">Economic Information</h2>
+            </header>
+
+            <div class="cost-info-input">
+
+                <div class="input">
+                    <span class="material-symbols-outlined">paid</span>
+                    <div class="textbox" style="--i:#FF006E;">
+                        <input type="text" id="cost-txtbox">
+                        <span class="input-text-holder">Cost</span>
+                    </div>
+                </div>
+                
+                <div class="input">
+                    <span class="material-symbols-outlined">payments</span>
+                    <div class="textbox-increment" style="--i:#FFBE0B;">
+                        <input type="text" id="downpayment-txtbox">
+                        <span class="input-text-holder">Down Payment (%)</span>
+                        <div class="inc-dec-button">
+                            <span class="material-symbols-outlined">add</span>
+                            <span class="material-symbols-outlined">remove</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input">
+                    <span class="material-symbols-outlined">account_balance</span>
+                    <div class="textbox" style="--i:#8338EC;">
+                        <input type="text" id="interest-txtbox">
+                        <span class="input-text-holder">Interest (%)</span>
+                    </div>
+                </div>
+
+                <div class="input">
+                    <span class="material-symbols-outlined">calendar_month</span>
+                    <div class="textbox" style="--i:#3A86FF;">
+                        <input type="text" id="years-txtbox">
+                        <span class="input-text-holder">Years</span>
+                    </div>
+                </div>
+
+                <div class="input">
+                    <span class="material-symbols-outlined">currency_exchange</span>
+                    <span class="text">Rolling Cost</span>
+                    <label class="checkbox" style="--i:#0f0;">
+                        <input type="checkbox" id="rolling-cost-checkbox">
+                        <span></span>
+                        <b></b>
+                    </label>
+                </div>
+            </div>
+
+            <div class="expenses">
+                <button>Test Button</button>
+            </div>
+
+        </div>
+
+    </section>
     <section id="tbd">TBD</section>
 
     <script type="module" src="../js/script.js"></script>
+    <script type="module" src="../js/ElementHandler/textboxHandler.js"></script>
+    <script type="module" src="../js/ElementHandler/incrementTextbox.js"></script>
 </body>
 </html>
