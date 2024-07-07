@@ -36,7 +36,7 @@
 }
 
 #property-section .page-title h4 {
-    font-size: 120px;
+    font-size: 6em;
     font-family: "Baskervville SC", serif;
     color: var(--dark-grey-color);
     margin: 0;
@@ -44,7 +44,7 @@
 }
 
 #property-section .page-title h2 {
-    font-size: 60px;
+    font-size: 3em;
     font-family: "Fraunces", serif;
     text-transform: uppercase;
     color: var(--grey-color);
@@ -60,7 +60,7 @@
 }
 
 #property-section .image img {
-    width: 750px;
+    width: 700px;
     height: auto;
     border-radius: 10px;
 }
@@ -87,7 +87,7 @@
 }
 
 #property-section input {
-    width: 300px;
+    width: 400px;
     height: 45px;
     border-radius: 30px;
     border: 0;
@@ -95,20 +95,20 @@
     box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
     outline: none;
     color: var(--dark-grey-color);
-    font-size: var(--font-normal);
+    font-size: 1.8em;
     font-weight: 600;
     text-align: center;
 }
 
 #property-section .inputs div>span:first-child {
-    font-size: var(--font-icons);
+    font-size: 2.5em;
     font-weight: bold;
     color: var(--dark-grey-color);
 }
 
 #property-section .input span {
     position: absolute;
-    font-size: var(--font-normal);
+    font-size: 1.8em;
     font-weight: 600;
     top: 50%;
     left: 50%;
@@ -118,16 +118,7 @@
     pointer-events: none;
 }
 
-#property-section .inputs input.active ~ span {
-    padding: 0px 15px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    top: -10px;
-    font-size: var(--font-small);
-    background: var(--grey-light-color);
-    transition: 0.5s;
-}
-
+#property-section .inputs input.active ~ span,
 #property-section .inputs input:focus ~ span {
     padding: 0px 15px;
     border-top-left-radius: 20px;
@@ -167,10 +158,10 @@
 }
 
 #property-section footer div h3 {
-    font-size: var(--font-normal);
+    font-size: 1.8em;
 }
 
 #property-section footer div p {
     text-align: center;
-    font-size: 18px;
+    font-size: 1.2em;
 }

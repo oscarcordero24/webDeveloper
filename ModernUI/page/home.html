@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="../css/body.css">
     <link rel="stylesheet" href="../css/dashboard_sec.css">
     <link rel="stylesheet" href="../css/property_sec.css">
+    <link rel="stylesheet" href="../css/property_sec_1920.css">
     <link rel="stylesheet" href="../css/loan_sec.css">
+    <link rel="stylesheet" href="../css/loan_sec_1920.css">
 </head>
 <body>
     <header class="top-bar">
@@ -152,7 +154,7 @@
                 <div>
                     <span class="material-symbols-outlined">percent</span>
                     <div class="input">
-                        <input type="text" id="price-textbox" autocomplete="off">
+                        <input type="text" id="interest-textbox" autocomplete="off">
                         <span>Interest</span>
                     </div>
                 </div>
@@ -160,7 +162,7 @@
                 <div>
                     <span class="material-symbols-outlined">paid</span>
                     <div class="input">
-                        <input type="text" id="price-textbox" autocomplete="off">
+                        <input type="text" id="downpayment-textbox" autocomplete="off">
                         <span>Down Payment (%)</span>
                     </div>
                 </div>
@@ -168,12 +170,21 @@
                 <div>
                     <span class="material-symbols-outlined">calendar_month</span>
                     <div class="input">
-                        <input type="text" id="price-textbox" autocomplete="off">
+                        <input type="text" id="years-textbox" autocomplete="off">
                         <span>Years</span>
                     </div>
                 </div>
 
-                
+                <div>
+                    <span class="material-symbols-outlined">
+                        currency_exchange<br><span class="text">Rolling Price</span>
+                    </span>
+                    <label>
+                        <input type="checkbox" name="rolling-price" id="rolling-switch">
+                        <b></b>
+                        <span></span>
+                    </label>
+                </div>
 
             </div>
         </div>

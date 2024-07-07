@@ -1,9 +1,22 @@
 
-let textboxList = document.querySelectorAll('#property-section .inputs input[type=text]');
+let textboxProperty = document.querySelectorAll('#property-section .inputs input[type=text]');
+let textboxloan = document.querySelectorAll('#loan-section .inputs-entry input[type=text]');
 
-console.log(textboxList);
+console.log(textboxloan)
 
-textboxList.forEach(txtbox => {
+textboxProperty.forEach(txtbox => {
+
+    txtbox.addEventListener('input', function() {
+        if (txtbox.value.length > 0) {
+            txtbox.classList.add('active');
+        } else {
+            txtbox.classList.remove('active');
+        };
+    });
+
+});
+
+textboxloan.forEach(txtbox => {
 
     txtbox.addEventListener('input', function() {
         if (txtbox.value.length > 0) {

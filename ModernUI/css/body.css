@@ -13,9 +13,9 @@
     --grey-blue-color: #ADB7B8;
     --grey-light-color: #C5C8C1;
 
-    --font-normal: 26px;
-    --font-small: 18px;
-    --font-icons: 40px;
+    --font-normal: 1.2em;
+    --font-small: 0.9em;
+    --font-icons: 1.5em;
 }
 
 body {
