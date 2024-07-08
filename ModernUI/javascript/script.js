@@ -1,8 +1,10 @@
 
 let textboxProperty = document.querySelectorAll('#property-section .inputs input[type=text]');
 let textboxloan = document.querySelectorAll('#loan-section .inputs-entry input[type=text]');
+let sections = document.querySelectorAll('section');
+let topBar = document.querySelector('header.top-bar');
 
-console.log(textboxloan)
+console.log(topBar)
 
 textboxProperty.forEach(txtbox => {
 
@@ -26,6 +28,21 @@ textboxloan.forEach(txtbox => {
         };
     });
 
+});
+
+sections.forEach(sec => {
+    window.onscroll = () => {
+        let top = window.scrollY; // Top of the screen
+        let height = sec.offsetHeight; // Height of the section
+
+
+        if (top >= height) {
+            topBar.classList.add('active');
+        } else {
+            topBar.classList.remove('active');
+        }
+
+    }
 });
 
 /* window.onscroll = () => {
