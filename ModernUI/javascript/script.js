@@ -2,7 +2,7 @@
 let textboxProperty = document.querySelectorAll('#property-section .inputs input[type=text]');
 let textboxloan = document.querySelectorAll('#loan-section .inputs-entry input[type=text]');
 let sections = document.querySelectorAll('section');
-let topBar = document.querySelector('header.top-bar');
+let topBar = document.querySelector('header.top-bar'); 
 
 console.log(topBar)
 
