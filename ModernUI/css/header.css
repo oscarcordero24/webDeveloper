@@ -9,6 +9,7 @@ header.top-bar {
     align-items: center;
     gap: 300px;
     z-index: 100;
+    transition: 0.5s;
 }
 
 header.top-bar a {
@@ -33,6 +34,25 @@ header.top-bar a:hover>h4 {
     border-radius: 10px;
     background: rgba(0,0,0,0.3);
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    transform: translateY(10px);
+    transition: 0.5s;
+}
+
+header.top-bar.active {
+    position: fixed;
+    background: var(--dark-grey-color);
+    transition: 0.5s;
+}
+
+header.top-bar.active a {
+    color: var(--grey-light-color);
+}
+
+header.top-bar.active a:hover>h4 {
+    font-size: 28px;
+    transition: 0.5s;
+    padding: 5px 10px;
+    border-radius: 10px;
     transform: translateY(10px);
     transition: 0.5s;
 }
