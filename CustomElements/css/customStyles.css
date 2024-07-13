@@ -84,30 +84,84 @@ body {
     background-color: var(--clr);
 }
 
-/* Progress Bar */
-.progress-bar {
+/* Textbox Style 1 */
+.textbox-style {
+    --clr-1: #e2e2e2;
+    --clr-2: #e8e7e7;
+    --clr-font: #555;
     position: relative;
     display: flex;
+    justify-content: center;
     align-items: center;
-    background: #111;
-    width: 800px;
-    height: 3em;
-    border-radius: 1.5em;
+    width: 400px;
+    height: 40px;
 }
 
-.progress-bar::before {
+.textbox-style.style-1 input {
     position: absolute;
-    content: attr(data-label);
-    left: 0.5em;
-    bottom: 0.5em;
-    top: 0.5em;
-    padding-left: 1em;
-    padding-top: 0.2em;
-    color: white;
-    width: calc(100% - 2em);
-    min-width: 2em;
-    background: rgb(18, 134, 201);
-    border-radius: 1em;
-    font-size: 1.2em;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding-left: 50px;
+    z-index: 1;
+    bottom: 0;
+    transition: 0.5s;
+    color: var(--clr-font);
 }
 
+.textbox-style.style-1 input::placeholder {
+    color: var(--clr-font);
+}
+
+.textbox-style.style-1 span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: var(--clr-1);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 0;
+    bottom: 0;
+    transition: 0.5s;
+}
+
+.textbox-style.style-1 input:focus ~ span {
+    background: var(--clr-2);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2),
+                -5px -5px 10px rgba(245, 245, 245, 0.2);
+    animation: movesUp 0.5s forwards;
+    transition: 0.5s;
+}
+
+.textbox-style.style-1 input:focus {
+    animation: movesUp 0.5s forwards;
+    transition: 0.5s;
+}
+
+.textbox-style.style-1 input:not(:focus) ~ span {
+    animation: movesDown 0.5s forwards;
+}
+
+.textbox-style.style-1 input:not(:focus) {
+    animation: movesDown 0.5s forwards;
+}
+
+@keyframes movesUp {
+    0% {
+        bottom: 0px;
+    }
+    100% {
+        bottom: 10px;
+    }
+}
+
+@keyframes movesDown {
+    0% {
+        bottom: 10px;
+    }
+    100% {
+        bottom: 0px;
+    }
+}
