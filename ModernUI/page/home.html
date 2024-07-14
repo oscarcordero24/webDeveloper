@@ -157,37 +157,22 @@
     
                     <div>
                         <span class="material-symbols-outlined">percent</span>
-                        <div class="input">
-                            <input type="text" id="interest-textbox" autocomplete="off">
-                            <span>Interest</span>
-                        </div>
+                        <div class="textbox-style" data-id="loan-interest-txtb" data-placeholder="Interest" style="--clr-1: #ADB7B8; --clr-2: #1D2C33; --font-size: 1.5em; --h: 3em;">style_2</div>
                     </div>
     
                     <div>
                         <span class="material-symbols-outlined">paid</span>
-                        <div class="input">
-                            <input type="text" id="downpayment-textbox" autocomplete="off">
-                            <span>Down Payment (%)</span>
-                        </div>
+                        <div class="textbox-style" data-id="loan-downPayment-txtb" data-placeholder="Down Payment (%)" style="--clr-1: #ADB7B8; --clr-2: #1D2C33; --font-size: 1.5em; --h: 3em;">style_2</div>
                     </div>
     
                     <div>
                         <span class="material-symbols-outlined">calendar_month</span>
-                        <div class="input">
-                            <input type="text" id="years-textbox" autocomplete="off">
-                            <span>Years</span>
-                        </div>
+                        <div class="textbox-style" data-id="loan-years-txtb" data-placeholder="Years" style="--clr-1: #ADB7B8; --clr-2: #1D2C33; --font-size: 1.5em; --h: 3em;">style_2</div>
                     </div>
     
                     <div>
-                        <span class="material-symbols-outlined">
-                            currency_exchange<br><span class="text">Rolling Price</span>
-                        </span>
-                        <label>
-                            <input type="checkbox" name="rolling-price" id="rolling-switch">
-                            <b></b>
-                            <span></span>
-                        </label>
+                        <span class="material-symbols-outlined">currency_exchange<br><span class="text">Rolling Price</span></span>
+                        <div class="checkbox-style">switch_btn</div>
                     </div>
     
                 </div>
@@ -283,5 +268,7 @@
     </div>
 
     <script src="../javascript/script.js"></script>
+    <script src="../../CustomElements/javascript/custom_elements.js"></script>
+    <script src="../../CustomElements/javascript/custom_checkbox.js"></script>
 </body>
 </html>

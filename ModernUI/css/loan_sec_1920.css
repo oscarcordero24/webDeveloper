@@ -21,7 +21,7 @@
         width: 100%;
         height: 100%;
         background: var(--dark-grey-color);
-        padding: 0px 50px;
+        padding: 50px 50px;
     }
     
     #loan-section .loan-information div {
@@ -44,7 +44,7 @@
     #loan-section .input {
         grid-area: inputs;
         display: grid;
-        grid-template-rows: 100px 1fr;
+        grid-template-rows: 200px 1fr;
         grid-template-areas: 
         "title"
         "inputs";
@@ -58,7 +58,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
     }
 
     #loan-section .input .title h1 {
@@ -72,7 +71,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 25px;
+        gap: 3em;
         padding-top: 50px;
     }
 
@@ -80,116 +79,33 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 90%;
-        gap: 20px;
-        padding-left: 13px;
+        width: 75%;
+        gap: 2em;
     }
 
-    #loan-section .input .inputs-entry>div input {
-        width: 250px;
-        height: 30px;
-        border: none;
-        background: var(--grey-blue-color);
-        border-radius: 15px;
-        outline: none;
-        text-align: center;
+    #loan-section .input .inputs-entry>div>div input {
         font-size: 1em;
-        font-weight: 600;
-        color: var(--dark-grey-color);
     }
 
-    #loan-section .input .inputs-entry>div div {
-        position: relative;
-        display: flex;
-    }
-
-    #loan-section .input .inputs-entry>div div>span {
-        position: absolute;
-        top: 50%;
-        left: 40%;
-        transform: translate(-50%,-50%);
+    #loan-section .input .inputs-entry>div>div span {
         font-size: 1em;
-        font-weight: 600;
-        color: var(--dark-grey-color);
-        transition: 0.5s;
-        pointer-events: none;
     }
-
-    #loan-section .inputs-entry>div>span {
+    
+    #loan-section .input .inputs-entry>div:last-child {
+        justify-content: left;
+        gap: 5em;
+    }
+    
+    #loan-section .input .inputs-entry>div span:first-child {
         font-size: 2em;
         font-weight: 600;
-        pointer-events: none;
-    }
-
-    #loan-section .inputs-entry>div input.active ~ span,
-    #loan-section .inputs-entry>div input[type='text']:hover ~ span {
-        font-size: 0.8em;
-        top: -5px;
-        background: var(--grey-blue-color);
-        padding: 0 10px;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-        transition: 0.5s;
-    }
-
-    #loan-section .inputs-entry>div input[type='checkbox'] {
-        display: none;
-    }
-
-    #loan-section .inputs-entry>div:last-child {
-        justify-content: flex-start;
-        padding-left: 0px;
-        gap: 85px;
-    }
-
-    #loan-section .inputs-entry>div:last-child>span {
-        font-size: 2em;
         text-align: center;
     }
-
-    #loan-section .inputs-entry>div:last-child>span .text {
-        font-size: 0.3em;
-    }
-
-    #loan-section .inputs-entry>div:last-child label {
-        position: relative;
-    }
-
-    #loan-section .inputs-entry>div:last-child label span {
-        position: absolute;
-        background: white;
-        width: 60px;
-        height: 32px;
-        border-radius: 30px;
-        border: 2px solid var(--dark-grey-color);
-        box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
-        cursor: pointer;
-        transition: 0.5s;
-    }
-
-    #loan-section .inputs-entry>div:last-child label b {
-        position: absolute;
-        background: white;
-        content: '';
-        top: 0;
-        left: 0;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        border: 2px solid var(--dark-grey-color);
-        z-index: 1;
-        cursor: pointer;
-        transition: 0.5s;
-    }
-
-    #loan-section .inputs-entry>div:last-child input:checked ~ b {
-        transform: translateX(30px);
-        transition: 0.5s;
-    }
-
-    #loan-section .inputs-entry>div:last-child input:checked ~ span {
-        background: rgb(138, 213, 138);
-        transition: 0.5s;
+    
+    #loan-section .input .inputs-entry>div span.text {
+        font-size: 0.5em;
+        font-weight: 600;
+        text-align: center;
     }
 
 }
