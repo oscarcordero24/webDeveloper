@@ -6,7 +6,7 @@
     }
     
     #property-section .page-title {
-        padding-top: 10px;
+        padding-top: 100px;
     }
     
     #property-section .image img {
@@ -38,7 +38,7 @@
     }
     
     #property-section footer {
-        padding: 0px 20px;
+        padding: 0px 100px;
     }
     
     #property-section footer div {

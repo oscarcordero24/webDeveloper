@@ -2,12 +2,15 @@
 
 let cssStyle = `
 .textbox-style {
+    --w: 500px;
+    --h: 3em;
+    --font-size: 1em;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 500px;
-    height: 3em;
+    width: var(--w);
+    height: var(--h);
     padding: 0 15px;
 }
 
@@ -23,7 +26,7 @@ let cssStyle = `
     outline: none;
     width: 100%;
     height: 100%;
-    font-size: 1em;
+    font-size: var(--font-size);
     padding-left: 10px;
     z-index: 1;
 }
@@ -57,20 +60,21 @@ let cssStyle = `
 }
 
 .textbox-style.teams-style input {
+    position: absolute;
     background: transparent;
     border: none;
     outline: none;
     width: 100%;
     height: 100%;
-    font-size: 1em;
-    padding-left: 15px;
+    font-size: var(--font-size);
+    padding-left: 1.5em;
 }
 
 .textbox-style.teams-style input:focus ~ span,
 .textbox-style.teams-style input:hover ~ span {
     position: absolute;
     content: '';
-    height: 3px;
+    height: 0.15em;
     width: 100%;
     bottom: 0;
     background-color: var(--clr);
@@ -102,6 +106,7 @@ let cssStyle = `
     transition: 0.5s;
     color: var(--clr-font);
     font-weight: 600;
+    font-size: var(--font-size);
 }
 
 .textbox-style.style-1 input::placeholder {
@@ -161,6 +166,53 @@ let cssStyle = `
     }
 }
 
+/* Textbox Style 2 */
+.textbox-style.style-2 {
+    --clr-1: #999;
+    --clr-2: #fff;
+    position: relative;
+    border: none;
+    border-radius: 1.5em;
+    background: var(--clr-1);
+}
+
+.textbox-style.style-2 input {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    font-size: var(--font-size);
+    text-align: center;
+    color: var(--clr-2);
+    font-weight: 600;
+}
+
+.textbox-style.style-2 span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: var(--clr-2);
+    font-size: var(--font-size);
+    font-weight: 600;
+    pointer-events: none;
+    text-wrap: nowrap;
+    transition: 0.5s;
+}
+
+.textbox-style.style-2 input:focus ~ span,
+.textbox-style.style-2.has-content span {
+    top: -0.8em;
+    font-size: calc(var(--font-size) * 0.8);
+    background: var(--clr-1);
+    padding: 0.2em 1em 0em 1em;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
 `;
 
 
@@ -172,13 +224,13 @@ textboxList.forEach(textbox => {
         textbox.classList.add('google-style');
         textbox.innerHTML = `<span class="material-symbols-outlined">search</span>`;
         if (textbox.dataset.id && textbox.dataset.class) {
-            textbox.innerHTML += `<input type="text" class="${textbox.dataset.class}" id="${textbox.dataset.id}"></input>`;
+            textbox.innerHTML += `<input type="text" class="${textbox.dataset.class}" id="${textbox.dataset.id}" autocomplete="off"></input>`;
         } else if (textbox.dataset.id) {
-            textbox.innerHTML += `<input type="text" id="${textbox.dataset.id}"></input>`;
+            textbox.innerHTML += `<input type="text" id="${textbox.dataset.id}" autocomplete="off"></input>`;
         } else if (textbox.dataset.class) {
-            textbox.innerHTML += `<input type="text" class="${textbox.dataset.class}"></input>`;
+            textbox.innerHTML += `<input type="text" class="${textbox.dataset.class}" autocomplete="off"></input>`;
         } else {
-            textbox.innerHTML += `<input type="text"></input>`;
+            textbox.innerHTML += `<input type="text" autocomplete="off"></input>`;
         }
         textbox.innerHTML += `<span class="background-box"></span>`;
         
@@ -186,15 +238,15 @@ textboxList.forEach(textbox => {
         textbox.classList.add('teams-style');
         textbox.innerHTML = "";
         if (textbox.dataset.id && textbox.dataset.class && textbox.dataset.placeholder) {
-            textbox.innerHTML += `<input type="text" class="${textbox.dataset.class}" id="${textbox.dataset.id}" placeholder="${textbox.dataset.placeholder}"></input>`;
+            textbox.innerHTML += `<input type="text" class="${textbox.dataset.class}" id="${textbox.dataset.id}" placeholder="${textbox.dataset.placeholder}" autocomplete="off"></input>`;
         } else if (textbox.dataset.id) {
-            textbox.innerHTML += `<input type="text" id="${textbox.dataset.id}" placeholder="Enter Text Here..."></input>`;
+            textbox.innerHTML += `<input type="text" id="${textbox.dataset.id}" placeholder="Enter Text Here..." autocomplete="off"></input>`;
         } else if (textbox.dataset.class) {
-            textbox.innerHTML += `<input type="text" class="${textbox.dataset.class}" placeholder="Enter Text Here..."></input>`;
+            textbox.innerHTML += `<input type="text" class="${textbox.dataset.class}" placeholder="Enter Text Here..." autocomplete="off"></input>`;
         } else if (textbox.dataset.placeholder) {
-            textbox.innerHTML += `<input type="text" placeholder="${textbox.dataset.placeholder}"></input>`;
+            textbox.innerHTML += `<input type="text" placeholder="${textbox.dataset.placeholder}" autocomplete="off"></input>`;
         } else {
-            textbox.innerHTML += `<input type="text" placeholder="Enter Text Here..."></input>`;
+            textbox.innerHTML += `<input type="text" placeholder="Enter Text Here..." autocomplete="off"></input>`;
         }
         textbox.innerHTML += `<span></span>`;
 
@@ -202,17 +254,46 @@ textboxList.forEach(textbox => {
         textbox.classList.add('style-1');
         textbox.innerHTML = "";
         if (textbox.dataset.id && textbox.dataset.class && textbox.dataset.placeholder) {
-            textbox.innerHTML += `<input type="text" class="${textbox.dataset.class}" id="${textbox.dataset.id}" placeholder="${textbox.dataset.placeholder}"></input>`;
+            textbox.innerHTML += `<input type="text" class="${textbox.dataset.class}" id="${textbox.dataset.id}" placeholder="${textbox.dataset.placeholder}" autocomplete="off"></input>`;
         } else if (textbox.dataset.id) {
-            textbox.innerHTML += `<input type="text" id="${textbox.dataset.id}" placeholder="Enter Text Here..."></input>`;
+            textbox.innerHTML += `<input type="text" id="${textbox.dataset.id}" placeholder="Enter Text Here..." autocomplete="off"></input>`;
         } else if (textbox.dataset.class) {
-            textbox.innerHTML += `<input type="text" class="${textbox.dataset.class}" placeholder="Enter Text Here..."></input>`;
+            textbox.innerHTML += `<input type="text" class="${textbox.dataset.class}" placeholder="Enter Text Here..." autocomplete="off"></input>`;
         } else if (textbox.dataset.placeholder) {
-            textbox.innerHTML += `<input type="text" placeholder="${textbox.dataset.placeholder}"></input>`;
+            textbox.innerHTML += `<input type="text" placeholder="${textbox.dataset.placeholder}" autocomplete="off"></input>`;
         } else {
-            textbox.innerHTML += `<input type="text" placeholder="Enter Text Here..."></input>`;
+            textbox.innerHTML += `<input type="text" placeholder="Enter Text Here..." autocomplete="off"></input>`;
         }
         textbox.innerHTML += `<span></span>`;
+
+    } else if (textbox.textContent === "style_2") {
+        textbox.classList.add('style-2');
+        textbox.innerHTML = "";
+        if (textbox.dataset.id && textbox.dataset.class) {
+            textbox.innerHTML += `<input type="text" class="${textbox.dataset.class}" id="${textbox.dataset.id}" autocomplete="off"></input>`;
+        } else if (textbox.dataset.id) {
+            textbox.innerHTML += `<input type="text" id="${textbox.dataset.id}" autocomplete="off"></input>`;
+        } else if (textbox.dataset.class) {
+            textbox.innerHTML += `<input type="text" class="${textbox.dataset.class}" autocomplete="off"></input>`;
+        } else {
+            textbox.innerHTML += `<input type="text" autocomplete="off"></input>`;
+        }
+
+        if (textbox.dataset.placeholder) {
+            textbox.innerHTML += `<span>${textbox.dataset.placeholder}</span>`;
+        } else {
+            textbox.innerHTML += `<span>Enter Text Here...</span>`;
+        }
+
+        // Add event listener
+        textbox.firstChild.addEventListener('input', function() {
+            if (textbox.firstChild.value.length > 0) {
+                textbox.classList.add('has-content');
+            } else {
+                textbox.classList.remove('has-content');
+            }
+        });
+
     }
 
 });
