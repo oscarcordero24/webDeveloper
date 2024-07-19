@@ -1,3 +1,43 @@
+/*
+author: Oscar R. Cordero-Pérez
+date: 07/11/2024
+*/
+
+/*
+This code will add a custom textbox to a div element
+
+For this code to work and add the textbox, the div must have a class called "textbox-style" and the content must be the name of the style to be used.
+
+Styles at this moment:
+-Google style (google_style)
+-Teams style (teams_style)
+-Custom style 1 (style_1)
+-Custom style 2 (style_2)
+
+You can add multiple classes to the textbox by adding the 'data-class' attribute with the value of the classes you want to set.
+You can add an id to the textbox by adding the 'data-id' attribute with the value of the id you want to set.
+You can add a place holder text to the textbox by adding the 'data-placeholder' attribute with the value of the text you want to set as a placeholder.
+
+If you don't add any of those attributes then it will use the default values.
+Default values:
+-class = undefine (it doesn't have classes)
+-id = undefine (it doesn't have an id)
+-placeholder = "Enter Text Here..."
+
+The div should look like this in orther to work.
+<div class="textbox-style" data-class="any-amount-of-class" data-id="any-id" data-placeholder="any-placeholder">Textbox Style</div>
+
+If you want to change the width, height of the color of the bar that appears when you click on the textbox, you can add a 'style' attribute to the div.
+The variables for those styles are:
+color = --clr, --clr-1, clr-2 (Depends on the style)
+width = --w
+height = --h
+font-size = --font-size
+
+The div should look like this.
+<div class="textbox-style" data-class="any-amount-of-class" data-id="any-id" data-placeholder="any-placeholder" style="--clr: red; --w: 400px; --h: 30px;">Textbox Style</div>
+*/
+
 
 
 let cssStyle = `
@@ -323,3 +363,4 @@ if (!linkExist) {
     newLink.href = "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200";
     headElement.appendChild(newLink);
 };
+
