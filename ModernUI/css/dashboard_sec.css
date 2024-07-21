@@ -2,9 +2,143 @@
 #dashboard-section {
     width: 100%;
     height: 100vh;
-    background: red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 100px; /* Eliminate later on */
+    background: #ADB7B8;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas: 
+    "info info month-exp month-exp annual-exp annual-exp expenses expenses"
+    "info info month-cash month-cash annual-cash annual-cash expenses expenses"
+    "prin-inter prin-inter prin-inter down-roi-close down-roi-close down-roi-close expenses expenses"
+    "big-graph big-graph big-graph big-graph big-graph big-graph expenses expenses"
+    "big-graph big-graph big-graph big-graph big-graph big-graph rent rent"
+    "big-graph big-graph big-graph big-graph big-graph big-graph best-deal best-deal";
+    gap: 1.5em;
+    padding: 1.5em;
+    padding-top: 6em;
+}
+
+#dashboard-section div {
+    border-radius: 1.5em;
+    background: #8a9293;
+}
+
+#dashboard-section .property-info {
+    grid-area: info;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas: 
+    "title title"
+    "bed price"
+    "bath price"
+    "bath ico"
+    "ft ico";
+    gap: 0.5em;
+}
+
+/* Property Info Section */
+
+.property-info h2 {
+    grid-area: title;
+    text-align: center;
+    margin: auto;
+    font-size: 2em;
+}
+
+.property-info .bed {
+    grid-area: bed;
+    margin: auto;
+    margin-bottom: 0;
+    font-size: 1.5em;
+}
+
+.property-info .bath {
+    grid-area: bath;
+    margin: auto;
+    font-size: 1.5em;
+}
+
+.property-info .ft {
+    grid-area: ft;
+    margin: auto;
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.property-info .ft sup {
+    font-size: 0.6em;
+    margin-left: 0.2em;
+}
+
+.property-info .price {
+    grid-area: price;
+    margin: auto;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.property-info .price strong {
+    font-size: 1.3em;
+}
+
+.property-info .material-symbols-outlined {
+    grid-area: ico;
+    margin: auto;
+    font-size: 6em;
+    font-weight: 600;
+}
+
+/* Monthly Expenses */
+#dashboard-section .montly-expenses {
+    grid-area: month-exp;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "text ico";
+}
+
+.montly-expenses>span:first-child {
+    grid-area: text;
+    margin: auto;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.montly-expenses>span:first-child .value {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.montly-expenses .material-symbols-outlined {
+    margin: auto;
+    font-size: 5em;
+    font-weight: 600;
+}
+
+/* Annual Expenses */
+#dashboard-section .annual-expenses {
+    grid-area: annual-exp;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "text ico";
+}
+
+.annual-expenses>span:first-child {
+    grid-area: text;
+    margin: auto;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.annual-expenses>span:first-child .value {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.annual-expenses .material-symbols-outlined {
+    margin: auto;
+    font-size: 5em;
+    font-weight: 600;
 }
