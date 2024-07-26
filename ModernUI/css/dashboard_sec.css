@@ -142,3 +142,60 @@
     font-size: 5em;
     font-weight: 600;
 }
+
+/* Monthly Cashflow */
+#dashboard-section .montly-cashflow {
+    grid-area: month-cash;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "text ico";
+}
+
+.montly-cashflow>span:first-child {
+    grid-area: text;
+    margin: auto;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.montly-cashflow>span:first-child .value {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.montly-cashflow .material-symbols-outlined {
+    margin: auto;
+    font-size: 5em;
+    font-weight: 600;
+}
+
+/* Annually Cashflow */
+#dashboard-section .annual-cashflow {
+    grid-area: annual-cash;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "text ico";
+}
+
+.annual-cashflow>span:first-child {
+    grid-area: text;
+    margin: auto;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.annual-cashflow>span:first-child .value {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.annual-cashflow .material-symbols-outlined {
+    margin: auto;
+    font-size: 5em;
+    font-weight: 600;
+}
+
+/* Principal and Interest */
+#dashboard-section .principal-interest {
+    
+}
