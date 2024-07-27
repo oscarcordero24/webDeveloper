@@ -11,6 +11,7 @@ module.exports = {
       },
       boxShadow: {
         'border-1': 'inset 2px 2px 8px rgba(0,0,0,0.4), 2px 2px 8px rgba(0,0,0,0.4)',
+        'border-2': '2px 2px 8px rgba(0,0,0,0.4)',
         'whole': 'inset 4px 4px 15px rgba(0,0,0,0.2)',
       }
     },

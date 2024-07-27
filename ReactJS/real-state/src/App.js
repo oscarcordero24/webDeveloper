@@ -1,10 +1,11 @@
 import './App.css';
 import Textbox from './Components/Textbox';
+import Switchbox from './Components/Switchbox';
 
 function App() {
   return (
     <div className='w-500px'>
-      <Textbox inputType={'text'} iconName={'home-outline'} placeHolder={'Enter Text'} id={'my-textbox'}/>
+      <Switchbox text={'Rolling Cost'}/>
     </div>
   );
 }

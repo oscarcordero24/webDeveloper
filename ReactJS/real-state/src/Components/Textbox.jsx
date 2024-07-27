@@ -11,6 +11,7 @@ function Textbox(props) {
     const active = `
     border-4 border-{rgb(236, 236, 236)}
     shadow-border-1
+    duration-500
     `;
 
     function handleOnFocus(e) {
@@ -77,6 +78,7 @@ function Textbox(props) {
         </div>
         <div className={`w-full h-12
                         rounded-full
+                        duration-500
                         ${activeClass}`}>
             <input type="text" 
                    value={value}
