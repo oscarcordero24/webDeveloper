@@ -25,11 +25,11 @@ function Switchbox(props) {
     }
 
     return (
-        <div className="w-full h-12
+        <div className="w-full h-full
                         flex justify-center items-center gap-2 duration-500">
             <label className="cursor-pointer">
                 <input type="checkbox" id={props.id} checked={isChecked} onChange={handleOnChange} className="hidden"/>
-                <div className={`w-8 h-8
+                <div className={`w-10 h-10
                              flex justify-center items-center
                              border-4 border-{rgb(236, 236, 236)} rounded-circle
                              ${activeClass}`}>

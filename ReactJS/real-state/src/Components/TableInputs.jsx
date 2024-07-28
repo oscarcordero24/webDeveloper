@@ -4,7 +4,7 @@ import Card from "./Cards";
 function TableInputs(props) {
 
     const cellStyle = `
-    w-32 h-14 pl-2 pr-2 py-2
+    w-32 h-14 pl-2 pr-4 py-4
     `;
 
     return (
@@ -23,58 +23,58 @@ function TableInputs(props) {
                 <tbody>
                     <tr>
                         <td className={cellStyle}>
-                            <Card textContent={'Mortgage'} fontWeight={'font-bold'}/>
+                            <Card textContent={'Mortgage'} fontWeight={'font-bold'} fontSize={'text-xl'}/>
                         </td>
                         <td className={cellStyle}>
-                            <Card textContent={'Amount'}/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className={cellStyle}>
-                            <Card textContent={'Energy'} fontWeight={'font-bold'}/>
-                        </td>
-                        <td className={cellStyle}>
-                            <Card textContent={'$0.00'} type={'input'}/>
+                            <Card textContent={'Amount'} fontSize={'text-xl'}/>
                         </td>
                     </tr>
                     <tr>
                         <td className={cellStyle}>
-                            <Card textContent={'Water'} fontWeight={'font-bold'}/>
+                            <Card textContent={'Energy'} fontWeight={'font-bold'} fontSize={'text-xl'}/>
                         </td>
                         <td className={cellStyle}>
-                            <Card textContent={'$0.00'} type={'input'}/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className={cellStyle}>
-                            <Card textContent={'Trash'} fontWeight={'font-bold'}/>
-                        </td>
-                        <td className={cellStyle}>
-                            <Card textContent={'$0.00'} type={'input'}/>
+                            <Card textContent={'$0.00'} type={'input'} fontSize={'text-xl'}/>
                         </td>
                     </tr>
                     <tr>
                         <td className={cellStyle}>
-                            <Card textContent={'HOA'} fontWeight={'font-bold'}/>
+                            <Card textContent={'Water'} fontWeight={'font-bold'} fontSize={'text-xl'}/>
                         </td>
                         <td className={cellStyle}>
-                            <Card textContent={'$0.00'} type={'input'}/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className={cellStyle}>
-                            <Card textContent={'Tax'} fontWeight={'font-bold'}/>
-                        </td>
-                        <td className={cellStyle}>
-                            <Card textContent={'Amount'}/>
+                            <Card textContent={'$0.00'} type={'input'} fontSize={'text-xl'}/>
                         </td>
                     </tr>
                     <tr>
                         <td className={cellStyle}>
-                            <Card textContent={'Vacancy'} fontWeight={'font-bold'}/>
+                            <Card textContent={'Trash'} fontWeight={'font-bold'} fontSize={'text-xl'}/>
                         </td>
                         <td className={cellStyle}>
-                            <Card textContent={'Amount'}/>
+                            <Card textContent={'$0.00'} type={'input'} fontSize={'text-xl'}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className={cellStyle}>
+                            <Card textContent={'HOA'} fontWeight={'font-bold'} fontSize={'text-xl'}/>
+                        </td>
+                        <td className={cellStyle}>
+                            <Card textContent={'$0.00'} type={'input'} fontSize={'text-xl'}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className={cellStyle}>
+                            <Card textContent={'Tax'} fontWeight={'font-bold'} fontSize={'text-xl'}/>
+                        </td>
+                        <td className={cellStyle}>
+                            <Card textContent={'Amount'} fontSize={'text-xl'}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className={cellStyle}>
+                            <Card textContent={'Vacancy'} fontWeight={'font-bold'} fontSize={'text-xl'}/>
+                        </td>
+                        <td className={cellStyle}>
+                            <Card textContent={'Amount'} fontSize={'text-xl'}/>
                         </td>
                     </tr>
                 </tbody>

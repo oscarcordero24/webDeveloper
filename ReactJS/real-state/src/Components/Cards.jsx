@@ -39,7 +39,7 @@ function Card(props) {
 
         return (
         
-            <div className="w-full h-full p-4 
+            <div className="w-full h-full p-2 
                             flex justify-center items-center
                             rounded-2xl shadow-border-2">
                 <input type='text'
@@ -60,7 +60,7 @@ function Card(props) {
 
         return (
         
-            <div className="w-full h-full p-4 
+            <div className="w-full h-full p-2 
                             flex justify-center items-center
                             rounded-2xl shadow-border-2">
                 <p className={`${fontSize} ${fontWeight}`}>{props.textContent}</p>

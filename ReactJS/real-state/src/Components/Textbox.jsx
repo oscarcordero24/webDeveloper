@@ -3,7 +3,7 @@ import { useState } from "react";
 function Textbox(props) {
 
   // Textbox property
-    const { placeHolder = 'Enter Text...', id = '', iconName = 'accessibility-outline', inputType = 'text' } = props;
+    const { placeHolder = 'Enter Text...', id = '', iconName = 'accessibility-outline', inputType = 'money' } = props;
 
     const [activeClass, setActiveClass] = useState('shadow-whole');
     const [value, setValue] = useState('');
@@ -14,10 +14,16 @@ function Textbox(props) {
     duration-500
     `;
 
+    function formatMoney(amount) {
+      return '$' + Number(amount).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+    }
+
     function handleOnFocus(e) {
       setActiveClass(active)
       if (inputType === 'percentage') {
         setValue(e.target.value.slice(0, -1));
+      } else if (inputType === 'money') {
+        setValue(e.target.value.slice(1));
       };
     };
 
@@ -31,30 +37,36 @@ function Textbox(props) {
         // If the Textbox is for a percentage
         if (inputType === 'percentage') {
 
-            // Parse the value to a number
-            let parseString = parseFloat(e.target.value);
-
-            if (e.target.value === '0') {
-              // if the value is 0
-              setValue(0 + "%")
-            } else if (!parseString) {
-              // if the value is a text
-              alert("Couldn't Parse Value");
-              setValue(0 + "%")
+          if (value === '0') {
+            setValue('0%');
+          } else if (value === '') {
+            setValue('');
+          }
+           else if (!parseFloat(value) || parseFloat(value) < 0) {
+            setValue('');
+          } else {
+            if (parseFloat(value) > 100) {
+              setValue('100%');
             } else {
-              // if the value is a number greater than 0
-              if (parseString > 100) {
-                // if the value is greater than 100
-                setValue(100 + "%")
-              } else if (parseString < 0) {
-                // if the value is less than 0
-                setValue(0 + "%")
-              } else {
-                // if the value is a number between 0 and 100
-                setValue(e.target.value + "%")
-              }
+              setValue(value + '%');
             }
+          }
           
+        } else if (inputType === 'money') {
+          if (value === '0') {
+            setValue('$0.00');
+          } else if (value === '') {
+            setValue('');
+          }
+           else if (!parseFloat(value) || parseFloat(value) < 0) {
+            setValue('');
+          } else {
+            if (value.split(',').length > 1) {
+              setValue(formatMoney(value.split(',').join('')));
+            } else {
+              setValue(formatMoney(value));
+            }
+          }
         };
 
       } else {
@@ -86,7 +98,7 @@ function Textbox(props) {
                    onFocus={ handleOnFocus }
                    onBlur={ handleBlur }
                    onChange={ handleOnChange }
-                   onKeyDown={ (e) => { if (e.code === 'Enter') { e.target.blur() } } }
+                   onKeyDown={ (e) => { if (e.code === 'Enter' || e.code === 'NumpadEnter') { e.target.blur() } } }
                    id={id} 
                    className={`${props.class}
                               w-full h-full
