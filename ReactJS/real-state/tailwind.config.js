@@ -19,7 +19,7 @@ module.exports = {
         'custom-1': '1fr 1fr'
       },
       gridTemplateRows: {
-        'custom-1': '6rem 1fr 10rem'
+        'custom-1': '6rem 1fr 12rem'
       }
     },
   },
